@@ -1,0 +1,77 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+<section>
+    <article>
+      <h1>About Us</h1>
+      <!--Begin row-->
+      <div class="row">
+        <!--Begin col-->
+        <div class="column">
+          <p>
+            Based in Mumbai, India, Little Lemon is a family owned
+            Mediterranean restaurant, focused on simple italian recipes served with a
+            modern twist.
+          </p>
+          <p>
+            The chefs draw inspiration from Indian, Italian, Greek, and Turkish culture
+            and have a menu of 12-15 items that they rotate seasonally.
+          </p>
+  
+          <p>
+            The restaurant has a rustic and relaxed atmosphere with moderate
+            prices, making it a popular place for a meal any time of the day.
+          </p>
+  
+          <p>
+            Little Lemon is owned by two Italian brothers, Mario and Adrian, who
+            moved to India to pursue their shared dream of owning a
+            restaurant.
+          </p>
+  
+          <p>
+            To craft the menu, Mario relies on family recipes and his experience
+            as a chef in Italy.
+          </p>
+  
+          <p>
+            Adrian does all the marketing for the restaurant and led the effort to
+            expand the menu beyond classic Italian to incorporate additional
+            cuisines from the mediterranean region.
+          </p>
+        </div>
+        <!--End col-->
+  
+        <!--Begin col-->
+        <div class="column">
+          <figure class="figure">
+            <img
+              src="{% static 'img/mario-and-adrian.jpg' %}"
+              alt="Mario and Adrian"
+            />
+            <figcaption class="figure-caption">
+              Little Lemon owners Mario and Adrian.
+            </figcaption>
+          </figure>
+        </div>
+        <!--End col-->
+      </div>
+      <!--End row-->
+      <!--Begin row-->
+      <!-- <div class="row">
+      <section class="contact" id="contact">
+
+                <div class="TextArea">
+                    <h2>Contact</h2>
+                    <a href="tel:7666088144" class="hov">TEL.7666088144</a><br><br>
+                    <a href="mailto:sajari.k.14@gmail.com" class="hov">sajari.k.14@gmail.com</a><br><br>
+                    48 Kannonshitamachiguchi, Komatsu City, Ishikawa Prefecture<br>
+                    LO-48, Kanagaso, Komatsu, Ishikawa, 923-0171, JAPAN<br><br>
+                    <a href="https://goo.gl/maps/n4enbvJwKSGsKUoD7" target="_blank" class="hov">Google Map</a>
+                </div>
+            </section>
+        </div> -->
+        <!--End row-->
+    </article>
+  </section>
+  {% endblock %}

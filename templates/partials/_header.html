@@ -1,0 +1,15 @@
+{% load static %}
+
+<section>
+    <header class="header__image">
+        <!--header-->
+        <div class="container">
+            <!-- Add image code -->
+            <img class="logo__image" src="{% static 'img/LEMON_RESTO_SAJ.png' %}" alt="restaurant logo image" />
+        </div>
+    </header>
+    <nav class="header__nav">
+        <a href="{% url 'home' %}">Home</a><a href="{% url 'menu' %}">Menu</a><a href="{% url 'book' %}">Book</a><a
+            href="{% url 'about' %}">About</a><a class="nav__contact" href="{% url 'contact' %}">Contact</a>
+    </nav>
+</section>

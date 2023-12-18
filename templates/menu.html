@@ -1,0 +1,52 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %} 
+<section>
+    <article>
+        <div class="menu">
+            <h1>Menu</h1>
+      <!--Begin row-->
+      <div class="row">
+        <!--Begin col-->
+        <div class="column">
+            {% if menu %}
+            {% for item in menu %}
+            <p>
+                <!-- Step 14: Add DTL variable for name -->
+                <a href="{% url 'menu_item' pk=item.pk %}">
+                    {{ item.name }}
+                </a><br>
+                <span class="menu-price">
+                    <!-- Step 14: Add DTL variable for price -->
+                    {{ item.price }} Rs
+                </span>
+            </p>
+            {% endfor %}
+            {% else %}
+            No items to display
+            {% endif %}
+            
+        </div>
+        <!--End col-->
+  
+        <!--Begin col-->
+        <div class="column">
+          <figure class="figure">
+            <img
+              src="{% static 'img/restaurant_food.jpg' %}"
+              alt="Mario and Adrian"
+            />
+            <!-- <figcaption class="figure-caption">
+              Little Lemon owners Mario and Adrian.
+            </figcaption> -->
+          </figure>
+        </div>
+        <!--End col-->
+      </div>
+      
+<!-- Add code to display contents of the Menu -->
+
+</div>
+    </article>
+</section>
+{% endblock %}

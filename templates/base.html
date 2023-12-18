@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Lemon</title>
+    <!-- Include your CSS files here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon.ico' %}" />
+    <link rel="preload" as="style" href="{% static 'css/style.css' %}" onload="this.rel = 'stylesheet'" />
+</head>
+
+<body>
+    <main>
+        {% include 'partials/_header.html' %}
+        <!--side bar-->
+        <!-- <div style="width:20%; float:left; border-right-style:groove">
+    <ul>
+    <b>
+    <li><a href="../menu/">Menu</a></li>
+    <li><a href="../book/">Book</a></li>
+    <li><a href="../about/">About</a></li>
+    </b>
+    </ul>
+    </div> margin-left:21%; -->
+        <!--contents-->
+        {% block content %}
+
+        {% endblock %}
+        <!--footer-->
+        {% block footer %}
+        
+            <section>
+                <article class="footer">
+                    <img class="logo__footer" src="{% static 'img/LEMON_RESTO_FOOTERB.png' %}" alt="restaurant logo image" />
+                    <p class="copyright">Copyright Little Lemon</p>
+                </article>
+            </section>
+        {% endblock %}
+    </main>
+</body>
+
+</html>
