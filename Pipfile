@@ -9,6 +9,8 @@ djangorestframework = "*"
 djangorestframework-xml = "*"
 djoser = "*"
 django-debug-toolbar = "*"
+djangorestframework-csv = "*"
+djangorestframework-yaml = "*"
 
 [dev-packages]
 
