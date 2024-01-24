@@ -16,3 +16,5 @@ http://127.0.0.1:8000/api/menu-items?ordering=inventory
 http://127.0.0.1:8000/api/menu-items?ordering=-inventory
 http://127.0.0.1:8000/api/menu-items?ordering=price,inventory
 http://127.0.0.1:8000/api/menu-items?ordering=price,-inventory
+
+http://127.0.0.1:8000/api/menu-items?perpage=3&page=1
