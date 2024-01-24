@@ -10,6 +10,9 @@ from rest_framework.renderers import TemplateHTMLRenderer, StaticHTMLRenderer
 from rest_framework_csv.renderers import CSVRenderer
 from rest_framework_yaml.renderers import YAMLRenderer
 
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
+
 @api_view() 
 @renderer_classes([TemplateHTMLRenderer])
 def menu(request):
@@ -102,3 +105,8 @@ def menu_items(request):
 #     item = get_object_or_404(MenuItem,pk=id)
 #     serialized_item = MenuItemSerializer(item)
 #     return Response(serialized_item.data)
+
+@api_view()
+@permission_classes([IsAuthenticated])
+def secret(request):
+    return Response({'message':'Some secret message'})
