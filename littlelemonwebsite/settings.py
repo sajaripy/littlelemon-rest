@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'djoser',
     'RestaurantAPI',
     'debug_toolbar',
 ]
@@ -153,6 +154,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 2,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication', #To use djoser for admin login
     ),
     'DEFAULT_THROTTLE_RATES': {
         'anon': '3/minute', #options: second, minute, hour, day
@@ -163,4 +165,9 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.AnonRateThrottle',
         'rest_framework.throttling.UserRateThrottle'
     ],
+}
+
+DJOSER = {
+    "USER_ID_FIELD": "username",
+    # "LOGIN_FIELD": "email",  #to make email as primary key
 }
