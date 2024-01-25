@@ -1,7 +1,7 @@
 from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 from .models import MenuItem, Category
-from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.decorators import api_view, renderer_classes, permission_classes, throttle_classes
 from django.shortcuts import get_object_or_404
 from .serializers import MenuItemSerializer, CategorySerializer
 from django.core.paginator import Paginator, EmptyPage
@@ -11,7 +11,10 @@ from rest_framework_csv.renderers import CSVRenderer
 from rest_framework_yaml.renderers import YAMLRenderer
 
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import permission_classes
+# from rest_framework.decorators import permission_classes
+
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
+from .throttles import TenCalllsPerMinute
 
 @api_view() 
 @renderer_classes([TemplateHTMLRenderer])
@@ -52,6 +55,13 @@ class MenuItemsViewSet(viewsets.ModelViewSet):
     serializer_class = MenuItemSerializer
     ordering_fields=['price','inventory']
     search_fields=['title','category__title']
+    # throttle_classes = [AnonRateThrottle, UserRateThrottle]
+    def get_throttles(self):
+        if self.action == 'create': #create for POST calls and list for GET calls
+            throttle_classes = [UserRateThrottle]
+        else:
+            throttle_classes = []
+        return [throttle() for throttle in throttle_classes]
 
 class SingleMenuItemView(generics.RetrieveUpdateDestroyAPIView):
     queryset = MenuItem.objects.all()
@@ -118,3 +128,14 @@ def manager_view(request):
         return Response({"message": "Only Manager Should See This"})
     else:
         return Response({"message": "You are not authorized"}, 403)
+
+@api_view()
+@throttle_classes([AnonRateThrottle])
+def throttle_check(request):
+    return Response({"message":"successful"})
+
+@api_view()
+@permission_classes([IsAuthenticated])
+@throttle_classes([TenCalllsPerMinute])
+def throttle_check_auth(request):
+    return Response({"message": "message for the logged in users only"})
