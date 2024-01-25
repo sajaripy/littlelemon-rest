@@ -18,3 +18,20 @@ http://127.0.0.1:8000/api/menu-items?ordering=price,inventory
 http://127.0.0.1:8000/api/menu-items?ordering=price,-inventory
 
 http://127.0.0.1:8000/api/menu-items?perpage=3&page=1
+
+
+Djoser
+http://127.0.0.1:8000/auth
+
+/users/
+/users/me/
+/users/confirm/
+/users/resend_activation/
+/users/set_password/
+/users/reset_password/
+/users/reset_password_confirm/
+/users/set_username/
+/users/reset_username/
+/users/reset_username_confirm/
+/token/login/  (Token based Authentication)
+/token/logout/  (Token based Authentication)
