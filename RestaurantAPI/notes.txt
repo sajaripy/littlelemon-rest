@@ -1,0 +1,19 @@
+superuser credentials
+Admin
+username: admin
+password: admin
+
+Customer:
+username: sayali
+password: suhas0805
+
+Managers:
+username: johndoe
+password: johnmana
+
+username: jimmydoe
+password: jimmymana
+
+Delivery-Crew:
+username: billy
+password: billydeliver

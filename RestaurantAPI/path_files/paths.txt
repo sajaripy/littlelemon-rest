@@ -35,3 +35,8 @@ http://127.0.0.1:8000/auth
 /users/reset_username_confirm/
 /token/login/  (Token based Authentication)
 /token/logout/  (Token based Authentication)
+
+jimmydoe
+{
+	"auth_token": "e648311ecec6600ead26f7f8e64164fc7d7e404b"
+}
